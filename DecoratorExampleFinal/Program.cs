@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DecoratorExampleFinal.Properties;
 
 namespace DecoratorExampleFinal
 {
@@ -10,17 +12,12 @@ namespace DecoratorExampleFinal
     {
         static void Main(string[] args)
         {
-            var simpleVideoGame = new SimpleVideoGame();
-            Console.WriteLine(simpleVideoGame.Description);
-
-            var multiplayerVideoGame = new MultiplayerGameDecorator(simpleVideoGame, 4);
-            Console.WriteLine(multiplayerVideoGame.Description);
-
-            var hiResVideoGame = new HiResGameDecorator(simpleVideoGame);
-            Console.WriteLine(hiResVideoGame.Description);
-
-            var multiplayerHiResVideoGame = new MultiplayerGameDecorator(new HiResGameDecorator(simpleVideoGame), 2);
-            Console.WriteLine(multiplayerHiResVideoGame.Description);
+            bool hiRes = Settings.Default.HiRes;
+            
+            VideoGame game = new SimpleVideoGame();
+            if (hiRes) game = new HiResGameDecorator(game);
+            game = new MultiplayerGameDecorator(game, 2);
+            Console.WriteLine(game.Description);
 
             Console.ReadKey();
         }
