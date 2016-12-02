@@ -10,7 +10,6 @@ namespace NoDecoratorExample
     {
         public HiResVideoGame() : base()
         {
-            
         }
 
         public override string Description => base.Description + " Avec graphiques en haute résolution!";
