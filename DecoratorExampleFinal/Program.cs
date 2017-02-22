@@ -19,6 +19,10 @@ namespace DecoratorExampleFinal
             game = new MultiplayerGameDecorator(game, 2);
             Console.WriteLine(game.Description);
 
+            game = new VRGameDecorator(game, 1);
+            Console.WriteLine(game.Description);
+
+
             Console.ReadKey();
         }
     }

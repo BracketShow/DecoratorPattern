@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NoDecoratorExample
+﻿namespace NoDecoratorExample
 {
     public class HiResVideoGame : SimpleVideoGame
     {
@@ -12,7 +6,8 @@ namespace NoDecoratorExample
         {
         }
 
-        public override string Description => base.Description + " Avec graphiques en haute résolution!";
+        public override string Description => 
+            base.Description + " Avec graphiques en haute résolution!";
 
     }
 }
